@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fillAfter="true"
+    android:interpolator="@android:anim/linear_interpolator" >
+
+    <!-- Use startOffset to give delay between animations -->
+   <!--  <translate android:fromXDelta="0%" android:toYDelta="-100%" android:duration="1000"/>--> 
+   <!--<translate android:fromXDelta="0" android:fromYDelta="-1000" android:duration="1500"/>  --> 
+   <translate android:fromXDelta="0" android:fromYDelta="1000" android:duration="800"  
+              android:startOffset="0" 
+       />
+   
+ <!--   android:toYDelta="200" android:startOffset="200"<translate
+        android:duration="800"
+        android:fillAfter="true"
+        android:fromYDelta="0%p"
+        android:startOffset="300"
+        android:toYDelta="-70%p" /> -->
+    <!-- Move -->
+    <scale
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:duration="5000"
+        android:fromXScale="1"
+        android:fromYScale="1"
+        android:pivotX="60%"
+        android:pivotY="60%"
+        android:toXScale="1"
+        android:toYScale="1" >
+    </scale>
+
+    <!-- Rotate 180 degrees
+    <rotate
+        android:duration="500"
+        android:fromDegrees="0"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:repeatCount="infinite"
+        android:repeatMode="restart"
+        android:toDegrees="360" /> -->
+
+</set>
