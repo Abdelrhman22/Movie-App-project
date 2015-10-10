@@ -67,8 +67,10 @@
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    style="?android:attr/starStyle"
                     android:text="Mark"
-                    android:id="@+id/checkBox" />
+                    android:textStyle="bold"
+                    android:id="@+id/cbaddFav" />
             </LinearLayout>
 
 

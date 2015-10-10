@@ -11,7 +11,7 @@
     <item android:id="@+id/movies_in_threats" android:title="Movies in Threats"
         android:orderInCategory="100" app:showAsAction="never" />
 
-    <item android:id="@+id/Tom_Cruise" android:title="Tom Cruise Films"
+    <item android:id="@+id/favo_Movies" android:title="Favourite Movies"
         android:orderInCategory="100" app:showAsAction="never" />
 
     <item android:id="@+id/action_settings" android:title="@string/action_settings"

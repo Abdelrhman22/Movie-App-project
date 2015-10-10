@@ -33,7 +33,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class GridViewActivity extends Fragment {
-
+    MovieFavDB movieFav = new MovieFavDB(getActivity());
     private static final String TAG = GridViewActivity.class.getSimpleName();
     private GridView mGridView;
     private ProgressBar mProgressBar;
@@ -338,12 +338,13 @@ public class GridViewActivity extends Fragment {
             new AsyncHttpTask().execute(FEED_URL_movies_in_threats);
             return true;
         }
-        if (id == R.id.Tom_Cruise) {
+        
+        if (id == R.id.favo_Movies) {
             mGridData.clear();
-            new AsyncHttpTask().execute(FEED_URL_tom_crusie_science_fuction);
-            return true;
-        }
+            mGridData=movieFav.getMovieFavList();
+            mGridAdapter.setGridData(mGridData);
 
+        }
 
         return super.onOptionsItemSelected(item);
     }

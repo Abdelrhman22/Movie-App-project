@@ -12,6 +12,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -28,7 +30,7 @@ public class DetailsActivity extends Fragment {
     private TextView overviewTextView;
     private TextView release_dateTextView;
     private TextView vote_averageTextView;
-
+    private CheckBox favourite_CheckBox;
     RecyclerView listView;
     String trailJson,reviewJson;
 
@@ -150,6 +152,34 @@ public class DetailsActivity extends Fragment {
             }
         });
         //}
+        MovieFavDB movieFav = new MovieFavDB(getActivity());
+        movieFav = movieFav.openToWrite();
+        final MovieFavDB finalMovieFav = movieFav;
+
+        boolean isFavMovie = finalMovieFav.isMovieFound(getArguments().getString("ID"));
+        if (isFavMovie) {
+            ((CheckBox) v.findViewById(R.id.cbaddFav)).setChecked(true);
+        }
+        ((CheckBox) v.findViewById(R.id.cbaddFav)).setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    // add fav
+                    GridItem FavItem = new GridItem();
+                    FavItem.setId(getArguments().getString("ID"));
+                    FavItem.setRelease_date(getArguments().getString("release_date"));
+                    FavItem.setImage(getArguments().getString("image"));
+                    FavItem.setVote_average(getArguments().getString("vote_average"));
+                    FavItem.setOverview(getArguments().getString("overview"));
+                    FavItem.setTitle(getArguments().getString("title"));
+                    finalMovieFav.insert(FavItem);
+
+                } else {
+                    // removeFav
+                    finalMovieFav.delete(getArguments().getString("ID"));
+                }
+            }
+        });
     }
 
 

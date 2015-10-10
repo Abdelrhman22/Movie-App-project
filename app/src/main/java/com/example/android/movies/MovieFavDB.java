@@ -1,14 +1,13 @@
 package com.example.android.movies;
 
-import java.util.ArrayList;
-
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
 
 public class MovieFavDB {
 
@@ -108,6 +107,7 @@ public class MovieFavDB {
 		Cursor cursor = sqLiteDatabase.query(MYDATABASE_TABLE, columns, null,
 				null, null, null, null);
 		try {
+
 			cursor.moveToFirst();
 			while (!cursor.isAfterLast()) {
 				GridItem favItem = new GridItem();
@@ -117,7 +117,7 @@ public class MovieFavDB {
 				favItem.setOverview(cursor.getString(3));
 				favItem.setVote_average(cursor.getString(4));
 				favItem.setRelease_date(cursor.getString(5));
-
+				ProdFav.add(favItem);
 				cursor.moveToNext();
 			}
 		} catch (Exception e) {
